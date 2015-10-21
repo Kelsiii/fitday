@@ -1,0 +1,16 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.menu{
+    width: 100%;
+    height: 100px;
+    top: 0px;
+}
+
+.logo{
+    float: left;
+    width: 230px;
+    height: 100px;
+    background-image: url(../front-end/UI/logo2.png);
+}
