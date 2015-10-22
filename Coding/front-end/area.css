@@ -7,6 +7,10 @@ body{
     height: 100px;
     top: 0px;
     backface-visibility: hidden;
+    background-color: white;
+}
+#menu_shadow{
+    border-bottom: solid 1px; border-bottom-color: #dedfe0;
 }
 
 #logo{
