@@ -1,0 +1,36 @@
+.menuFont{
+    font-family: Kartika;
+    letter-spacing: 2px;
+    font-weight: 800;
+    font-size: 22px;
+    text-align: center;
+    height:50px; line-height:50px; overflow:hidden;
+    position: relative;
+    top: 0px;
+}
+
+.sysTitle{
+    font-family: Khmer UI;
+    letter-spacing: 1px;
+    font-size: 22px;
+    font-weight: 500;
+    color: #868686;
+}
+
+.sysTitleBold{
+    font-family: Khmer UI;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color:#868686;
+}
+
+.sysText{
+    font-family: Khmer UI;
+    font-size: 19px;
+    font-weight: 500;
+    color:#868686;
+}
+
+a:link { text-decoration: none; } /*正常情况下无下划线*/
+a:visited { text-decoration: none; } /*访问过的链接无下划线*/

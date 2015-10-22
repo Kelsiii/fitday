@@ -6,11 +6,51 @@ body{
     width: 100%;
     height: 100px;
     top: 0px;
+    backface-visibility: hidden;
 }
 
-.logo{
+#logo{
+    position: relative;
     float: left;
     width: 230px;
     height: 100px;
-    background-image: url(../front-end/UI/logo2.png);
+    background-image: url(UI/logo2.png);
+}
+
+.menukey{
+    position: relative;
+    float: right;
+    width: 150px;
+    height: 50px;
+    top: 25px;
+}
+
+.wrapper{
+    width: 100%;
+    height: 400px;
+    
+    
+}
+
+
+#rcmd{
+    width: 90%;
+    height: 560px;
+    position: relative;
+    left: 5%;
+}
+
+#reclist{
+    width: 100%;
+    height: 400px;
+    position: relative;
+    top:65px;
+}
+
+.recIcon{
+    width:180px;
+    height: 180px;
+    background-size: 180px 180px;
+    position:relative;
+    left: 25%;
 }
