@@ -32,5 +32,62 @@
     color:#868686;
 }
 
+.sysTitleBold_c{
+    
+}
+
+.sysText_c{
+    font-family: 微软雅黑;
+    font-size: 15px;
+    color: #444444;
+    font-weight: 300;
+}
+
+.title{
+    font-family: 黑体;
+    font-size: 19px;
+    color: #444444;
+    font-weight: 300
+}
+.text{
+    font-family: 微软雅黑;
+    font-size: 14px;
+    color: #222;
+    font-weight: 300;
+}
+
+.sysTitle_c{
+    font-family: 华文细黑;
+    font-size: 19px;
+    color:#868686;
+    font-weight: 400;
+}
+
+#submitBtn{
+    margin-top:15px;margin-bottom:15px;width:120px;height:35px;position:relative;float:right;
+    font-family: 微软雅黑;
+    font-size: 15px;
+}
+
+.getMore{
+    position: relative;
+    display: block;
+    width: 80px;
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #fcd968;
+    border-radius: 2px;
+    text-decoration: none;
+    margin: 0 auto;
+}
+.getMore hover{
+    background-color: #fed336;
+}
+
+
 a:link { text-decoration: none; } /*正常情况下无下划线*/
 a:visited { text-decoration: none; } /*访问过的链接无下划线*/
