@@ -56,6 +56,17 @@
     font-weight: 300;
 }
 
+.sysLink{
+    font-family: 微软雅黑;
+    font-size: 14px;
+    color: #3377aa;
+    font-weight: 300;
+}
+.sysLink visited{
+    color: white;
+    background-color: #3377aa;
+}
+
 .sysTitle_c{
     font-family: 华文细黑;
     font-size: 19px;
@@ -72,20 +83,20 @@
 .getMore{
     position: relative;
     display: block;
-    width: 80px;
+    
     height: 28px;
     text-align: center;
     line-height: 28px;
     font-size: 13px;
     font-weight: 700;
     color: #fff;
-    background-color: #fcd968;
+    background-color: #eb8901;
     border-radius: 2px;
     text-decoration: none;
     margin: 0 auto;
 }
 .getMore hover{
-    background-color: #fed336;
+    background-color: #fed778;
 }
 
 
