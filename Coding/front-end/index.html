@@ -1,0 +1,104 @@
+<!doctype html>
+<html class="fsvs demo" lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <meta name="description" content="CSS3 Full Screen Vertical Scroller with jQuery animation fallback" />
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <link href='http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="assets/css/default.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="css/buttons.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/area.css">
+        
+        <script src="http://libs.useso.com/js/jquery/1.11.0/jquery.min.js"></script>
+        <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+        <script src="assets/js/jquery.swipe-events.js"></script>
+        <script src="assets/js/prismjs.js"></script>
+        <script src="assets/js/fsvs.js"></script>
+        <script src="assets/js/main.js"></script>
+        
+        <style>
+            #signup:hover{
+                background-color: #A1A1A1;
+            }
+        </style>
+        <script src=js/jquery-1.8.2.min.js></script>
+        <script type="text/javascript"> 
+            $(document).ready(function(){
+                $("#loginBtn").click(function(){
+                    $("#login").slideDown("slow");
+                });
+                
+                $("#closeBtn").click(function(){
+                    $("#login").slideUp("slow");
+                });
+            }); 
+        </script>
+    </head>
+    <body>
+        <div id="fsvs-body">
+           
+            <div class="slide" style="background-image: url(UI/background.png); background-size:100% 100%;">
+                <div id="loginBtn" class="sysTitleBold" style="height:70px; line-height:70px; overflow:hidden;font-size:25px;color:white;cursor:pointer;">Join Us Now</div>
+                <div class="menu" style="background-color:rgba(0, 0, 0, 0);position:absolute; top:0px; left:0px;">
+                    <div id="logo">
+                    </div>
+                    <a href="friends.html"><div class="menukey" style="right:5%; top:25px;">
+                        <p class="menuFont" style="color:white">FRIENDS</p>
+                    </div></a>
+                    <a href="activity.html"><div class="menukey" style="right:5%; top:25px; ">
+                        <p class="menuFont" style="color:white">ACTIVITY</p>
+                    </div></a>
+                    <a href="healthPage.html"><div class="menukey" style="right:5%; top:25px;">
+                        <p class="menuFont" style="color:white">BLOG</p>
+                    </div></a>
+                    <a href="forum.html"><div class="menukey" style="right:5%; top:25px;">
+                        <p class="menuFont" style="color:white">FORUM</p>
+                    </div></a>
+                    <a href="homepage.html"><div class="menukey" style="right:5%; top:25px;">
+                        <p class="menuFont" style="color:white">HOME</p>
+                        </div></a>
+                </div>
+                
+                <div id="login" class="card" style="width:100%;height:120%;top:-20%;background-color:rgba(226,226,226,0.7); display:none">
+                    <div class="card" style="width:420px;height:320px;background-color:white;position:relative;left:350px;top:200px;float:left;">
+                        <p style="font-family: 华文细黑;font-size: 19px;color:#868686;font-weight: 400;text-align:left;padding-left:50px;padding-top:30px;">登录</p>
+                        <div style="background-color: #eef1f0;margin-top:20px;margin-left:50px; width:320px;height:35px; padding-left:10px;">
+                            <span style="height:35px;float:left;line-height:35px;" class="text">邮箱</span>
+                            <input style="color:black;height:35px;width:250px;float:right;background-color:rgba(0,0,0,0);border:none">
+                        </div>
+                        <div style="background-color: #eef1f0;margin-top:20px;margin-left:50px; width:320px;height:35px; padding-left:10px;">
+                            <span style="height:35px;float:left;line-height:35px;" class="text">密码</span>
+                            <input type="password" style="color:black;height:35px;width:250px;float:right;background-color:rgba(0,0,0,0);border:none">
+                        </div>
+                        <a style="color:#eb8901;position:relative;left:130px;top:10px;font-size:14px;">忘记密码？</a>
+                        <a href="#" class="getMore" style="margin-top:30px;margin-left:250px; width:120px;height:35px;font-weight:300;font-size:16px;letter-spacing:5px;">登录</a>
+                    </div>
+                    
+                    <div style="width:180px;height:320px;background-color:#5A5A5A;position:relative;left:350px;top:200px;float:left">
+                        <span id="closeBtn" style="float:right;width:30px;height:30px;cursor:pointer;">×</span>
+                        <p style="font-family: 华文细黑;font-size: 15px;color:#A1A1A1;font-weight:300;text-align:left;padding-left:30px;height:30px;position:relative;top:230px;">没有账户？</p>
+                        <a href="signup.html" id="signup" style="display: block;width:120px;height:35px;line-height:35px;font-weight:300;font-size:16px;border:solid 1px; border-color:#A1A1A1;left:30px;position:relative;top:200px;">现在注册</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide" >
+                
+                
+            </div>
+            
+            <div class="slide">
+                
+            </div>
+            
+            <div class="slide">
+                
+            </div>
+            
+            
+        </div>
+    </body>
+</html>

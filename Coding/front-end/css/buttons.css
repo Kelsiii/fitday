@@ -34,8 +34,6 @@
 .ghbutton:active {
     border-color: #FFA600;
     border-bottom-color: #F7A11F;
-    text-decoration: none; 
-    text-shadow: -1px -1px 0 rgba(0,0,0,0.3); 
     color: #fff; 
     background-color: #FED136;
     background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fed136), to(#FDDA38));
@@ -95,7 +93,6 @@
   background-image: linear-gradient(to bottom, #fed336, #fed336);
   text-decoration: none;
 }
-
 .menuBtn{
     width: 100%;
     height: 50px;
@@ -119,3 +116,51 @@
 .menuBtn:active{
     background-color: #ffcc33;   
 }
+
+#loginBtn{
+    width:285px; height:70px; background-color:#fed136;
+    position: relative;
+    left: 40%;
+    top: 63%;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+
+.getMore{
+    position: relative;
+    display: block;
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #eb8901;
+    border-radius: 2px;
+    text-decoration: none;
+    margin: 0 auto;
+}
+
+.getMore:hover{
+    background-color: #fed778;
+}
+
+
+#nav{line-height: 30px;  list-style-type: none; background:#666; position: relative; float: left; left: 40px; top: 30px;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius:5px; z-index: 999;} 
+#nav a{display: block; width: 100px; text-align:center;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius:5px;} 
+#nav a:link {color:#666; text-decoration:none} 
+#nav a:visited {color:#666;text-decoration:none} 
+#nav a:hover {color:#FFF;text-decoration:none;font-weight:bold} 
+#nav li{float: left; width: 100px; background:#CCC;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius:5px;} 
+#nav li a:hover{ background:#999} 
+#nav li ul{line-height: 27px;  list-style-type: none;text-align:center;left: -999em; width: 100px; position: absolute} 
+#nav li ul li{float: left; width: 100px;background:#EFEFEF;text-align: center} 
+#nav li ul a{display: block; width: 100px;text-align:center;padding-left:0px; overflow:hidden} 
+#nav li ul a:link {color:#666; text-decoration:none} 
+#nav li ul a:visited {color:#666;text-decoration:none} 
+#nav li ul a:hover {color:#F3F3F3;text-decoration:none;font-weight:normal;background:#528E95;text-align: center;} 
+#nav li:hover ul{left: auto} 
+#nav li.sfhover ul{left: auto} 
+#content{clear: left}
+
