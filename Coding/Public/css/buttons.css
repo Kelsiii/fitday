@@ -1,0 +1,178 @@
+.ghbutton { 
+    position: relative; 
+    overflow: visible; 
+    display: inline-block; 
+    padding: 0.5em 1em; 
+    border: 1px solid #d4d4d4; 
+    margin: 0;
+    text-decoration: none; 
+    text-shadow: 1px 1px 0 #fff; 
+    font:11px/normal sans-serif; 
+    color: #333; 
+    white-space: nowrap; 
+    cursor: pointer; 
+    outline: none; 
+    background-color: #ececec;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f4f4f4), to(#ececec));
+    background-image: -moz-linear-gradient(#f4f4f4, #ececec);
+    background-image: -o-linear-gradient(#f4f4f4, #ececec);
+    background-image: linear-gradient(#f4f4f4, #ececec);
+    -webkit-background-clip: padding;
+    -moz-background-clip: padding;
+    -o-background-clip: padding-box; 
+    /*background-clip: padding-box;*/ /* commented out due to Opera 11.10 bug */
+    -webkit-border-radius: 0.2em; 
+    -moz-border-radius: 0.2em; 
+    border-radius: 0.2em; 
+    /* IE hacks */
+    zoom: 1; 
+    *display: inline; 
+}
+
+.ghbutton:hover,
+.ghbutton:focus,
+.ghbutton:active {
+    border-color: #FFA600;
+    border-bottom-color: #F7A11F;
+    color: #fff; 
+    background-color: #FED136;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fed136), to(#FDDA38));
+    background-image: -moz-linear-gradient(#FED136, #FDDA38);
+    background-image: -o-linear-gradient(#FED136, #FDDA38);
+    background-image: linear-gradient(#FED136, #FDDA38);
+}
+
+.ghbutton:active,
+.ghbutton.active {
+    border-color: #FED136;
+    border-bottom-color: #FED136;
+    color: #fff; 
+    background-color: #ffcc33;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fdda38), to(#fed136));
+    background-image: -moz-linear-gradient(#fdda38, #fed136);
+    background-image: -o-linear-gradient(#fdda38, #fed136);
+    background-image: linear-gradient(#fdda38, #fed136);
+}
+
+.ghbutton:disabled,
+.ghbutton.active{
+    cursor: auto;
+    border: 1px solid #d4d4d4; 
+    background-color: #ececec;
+    color: #333; 
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f4f4f4), to(#ececec));
+    background-image: -moz-linear-gradient(#f4f4f4, #ececec);
+    background-image: -o-linear-gradient(#f4f4f4, #ececec);
+    background-image: linear-gradient(#f4f4f4, #ececec);
+}
+
+/* overrides extra padding on button elements in Firefox */
+.ghbutton::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+
+.roundBtn{
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    cursor: hand;
+}
+
+.checkBtn {
+  background: #fcd968;
+  background-image: -webkit-linear-gradient(top, #fcd968, #fcd968);
+  background-image: -moz-linear-gradient(top, #fcd968, #fcd968);
+  background-image: -ms-linear-gradient(top, #fcd968, #fcd968);
+  background-image: -o-linear-gradient(top, #fcd968, #fcd968);
+  background-image: linear-gradient(to bottom, #fcd968, #fcd968);
+  -webkit-border-radius: 2;
+  -moz-border-radius: 2;
+  border-radius: 2px;
+  font-family: Georgia;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.checkBtn:hover {
+  background: #fed336;
+  background-image: -webkit-linear-gradient(top, #fed336, #fed336);
+  background-image: -moz-linear-gradient(top, #fed336, #fed336);
+  background-image: -ms-linear-gradient(top, #fed336, #fed336);
+  background-image: -o-linear-gradient(top, #fed336, #fed336);
+  background-image: linear-gradient(to bottom, #fed336, #fed336);
+  text-decoration: none;
+}
+.menuBtn{
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:5px;
+    font-family: 微软雅黑;
+    font-size: 16px;
+    color: #ffcc33;
+    font-weight: 400; 
+    text-align: center;
+    line-height: 50px;
+}
+
+.menuBtn:hover{
+     background:#FCE78C; 
+     color: white;
+}
+
+.menuBtn:active{
+    background-color: #ffcc33;   
+}
+
+#loginBtn{
+    width:285px; height:70px; background-color:#fed136;
+    position: relative;
+    left: 40%;
+    top: 63%;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+
+.getMore{
+    position: relative;
+    display: block;
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #eb8901;
+    border-radius: 2px;
+    text-decoration: none;
+    margin: 0 auto;
+}
+
+.getMore:hover{
+    background-color: #fed778;
+}
+
+
+#nav{line-height: 30px;  list-style-type: none; background:#666; position: relative; float: left; left: 40px; top: 30px;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius:5px; z-index: 999;} 
+#nav a{display: block; width: 100px; text-align:center;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius:5px;} 
+#nav a:link {color:#666; text-decoration:none} 
+#nav a:visited {color:#666;text-decoration:none} 
+#nav a:hover {color:#FFF;text-decoration:none;font-weight:bold} 
+#nav li{float: left; width: 100px; background:#CCC;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius:5px;} 
+#nav li a:hover{ background:#999} 
+#nav li ul{line-height: 27px;  list-style-type: none;text-align:center;left: -999em; width: 100px; position: absolute} 
+#nav li ul li{float: left; width: 100px;background:#EFEFEF;text-align: center} 
+#nav li ul a{display: block; width: 100px;text-align:center;padding-left:0px; overflow:hidden} 
+#nav li ul a:link {color:#666; text-decoration:none} 
+#nav li ul a:visited {color:#666;text-decoration:none} 
+#nav li ul a:hover {color:#F3F3F3;text-decoration:none;font-weight:normal;background:#528E95;text-align: center;} 
+#nav li:hover ul{left: auto} 
+#nav li.sfhover ul{left: auto} 
+#content{clear: left}
+

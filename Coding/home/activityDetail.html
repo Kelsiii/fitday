@@ -1,0 +1,140 @@
+<html>
+	<head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="forumPage" content="Activity for fitday.">
+        <link rel="stylesheet" href="../Public/css/area.css">
+        <link rel="stylesheet" href="../Public/css/style.css">
+        <link rel="stylesheet" type="text/css" href="../Public/css/zzsc.css" />
+        <link rel="stylesheet" type="text/css" href="../Public/css/buttons.css" />
+        <script type="text/javascript" src="../Public/js/jquery-1.8.2.min.js"></script>
+        
+        <style type="text/css">
+            .inputBox{
+                position: relative;
+                left: 50px;
+                padding-top: 20px;
+                width: 573px;
+                height: 30px;
+            }
+            .userCard{
+                position: relative;
+                width: 350px;
+                height: 60px;
+                padding-top: 15px;
+            }
+        </style>
+        
+        <script type="text/javascript">
+            var id = GetQueryString("acid");
+            $(document).ready(function() { 
+                setDetail(id);
+                setJoiner(id);
+            });
+            function getJsonObjLength(jsonObj) {
+                var Length = 0;
+                for (var item in jsonObj) {
+                    Length++;
+                }
+                return Length;
+            }
+            function GetQueryString(name){
+                var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if(r!=null)return  unescape(r[2]); return null;
+            }
+            
+            function setDetail(id){
+                $.getJSON("../admin/ActivityInfo.php?type=detail&id="+id,function(data){
+                    document.getElementById("activityTitle").innerHTML = data.title;
+                    document.getElementById("activityDate").innerHTML = data.time;
+                    document.getElementById("position").innerHTML = data.position;
+                    document.getElementById("description").innerHTML = data.content;
+                    var now = new Date();
+                    var endtime = Date.parse(data.time);
+                    if(now>=endtime) {
+                        document.getElementById("joinBtn").onclick = "return false";
+                        document.getElementById("joinBtn").innerHTML = "活动已结束";
+                    }
+                });
+            }
+            
+            function joinActivity(){
+                $.get("../admin/ActivityInfo.php?type=join&id="+id,function(data){
+                    if(data!=true)
+                        alert(data);
+                    else{
+                        alert("参与成功！");
+                        setJoiner(id);
+                    }
+                });
+            }
+            
+            function setJoiner(id){
+                $.get("../admin/ActivityInfo.php?type=getjoin&id="+id,function(data){
+                    var jsondata = $.parseJSON(data);
+                    var element = document.getElementById("joinedUser");
+                    element.innerHTML="";
+                    for (var i=0; i<getJsonObjLength(jsondata); i++){
+                        var node=document.createElement("div");
+                        node.setAttribute("class","userCard");
+                        node.innerHTML = "<div class='actcard_img' style='width:60px;height:60px;background-image: url(../Public/UI/img5.png);' ></div><p class='titleBold' style='position:relative;left:30px;padding-top:20px;'>"+jsondata[i]['nickname']+"</p>";
+                        element.appendChild(node);
+                    }
+                }); 
+            }
+        </script>
+    </head>
+        
+	<body style="">
+        <div class="menu">
+            <a href="index.html"><div id="logo">
+                </div></a>
+            <a href="friends.html"><div class="menukey" style="right:5%; top:25px;">
+                <p class="menuFont" style="color:#C4C4C4">FRIENDS</p>
+                </div></a>
+            <a href="activity.html"><div class="menukey" style="right:5%; top:25px;  background-color:#FED136">
+                <p class="menuFont" style="color:white">ACTIVITY</p>
+                </div></a>
+            <a href="healthPage.html"><div class="menukey" style="right:5%; top:25px;">
+                <p class="menuFont" style="color:#C4C4C4">BLOG</p>
+                </div></a>
+            <a href="forum.html"><div class="menukey" style="right:5%; top:25px;">
+                <p class="menuFont" style="color:#c4c4c4">FORUM</p>
+                </div></a>
+            <a href="homepage.html"><div class="menukey" style="right:5%; top:25px;">
+                <p class="menuFont" style="color:#C4C4C4">HOME</p>
+                </div></a>
+        </div>
+        
+        <div class="cardBox"  style="top:25px; height:auto;">
+            <div class="leftCard" style="position:relative; float:left;width:700px;height:400px;padding-left:30px; ">
+                <span id="activityTitle" class="titleBold" style="position:relative;left:0px;top:10px;font-size:25px;"></span>
+    
+                <div class="inputBox" style="margin-top:10px;">
+                    <span class="text" style="font-size:17px;padding-right:15px;">活动时间</span>
+                    <span class="text" id= "activityDate" style="width:300px;"></span>
+                </div>
+        
+                <div class="inputBox">
+                    <span class="text" style="font-size:17px;padding-right:15px;">活动地点</span>
+                    <span class="text" id="position" style="width:300px;"></span>
+                </div>
+        
+                <div class="inputBox">
+                    <span class="text" style="font-size:17px;vertical-align:top;padding-right:15px;">活动描述</span>
+                    <span class="text" id="description" style="display:block;float:right; width:485px;height:200px;" ></span>
+                </div>
+            </div>
+        
+            <div class="anlCard" style="position:relative;width:360px;height:auto;float:right;left:0px;padding:15px;">
+                <span class="sysTitle_c" style="">参与者</span>
+                <a id="joinBtn" class="getMore" href="javascript:void(0);" onclick="joinActivity()" style="float:right;width:150px;">我要参加</a>
+            
+                <div id="joinedUser">
+                    
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

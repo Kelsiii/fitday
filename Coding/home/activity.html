@@ -1,0 +1,120 @@
+<html>
+	<head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="forumPage" content="Activity for fitday.">
+        <link rel="stylesheet" href="../Public/css/area.css">
+        <link rel="stylesheet" href="../Public/css/style.css">
+        <link rel="stylesheet" type="text/css" href="../Public/css/zzsc.css" />
+        <link rel="stylesheet" type="text/css" href="../Public/css/buttons.css" />
+        <script type="text/javascript" src="../Public/js/jquery-1.8.2.min.js"></script>
+    
+        <script type="text/javascript">
+            $(document).ready(function() { 
+                setList("1");
+                setHot();
+            });
+            function getJsonObjLength(jsonObj) {
+                var Length = 0;
+                for (var item in jsonObj) {
+                    Length++;
+                }
+                return Length;
+            }
+            function setHot(){
+                $.get("../admin/ActivityInfo.php?type=hot",function(data){
+                    var jsondata = $.parseJSON(data);
+                    var element = document.getElementById("hotActivity");
+                    element.innerHTML="";
+                    for (var i=0; i<getJsonObjLength(jsondata); i++){
+                        var node=document.createElement("div");
+                        node.setAttribute("class","actcard_l");
+                        node.innerHTML = "<div class='actcard_img' style='width:100px;height:100px;background-image: url(../Public/UI/activity.png);' ></div><a class='sysLink' style='margin-left:20px;position:relative; top:10px;' href='activityDetail.html?acid="+jsondata[i]['id']+"' target='_blank'>【"+jsondata[i]['position']+"】"+jsondata[i]['title']+"</a><p class='text' style='margin-left:120px;margin-top:35px;'>"+jsondata[i]['time']+"</p><p class='text' style='margin-left:120px;margin-top:10px;'>"+jsondata[i]['address']+"</p>";
+                        element.appendChild(node);
+                    }
+                }); 
+            }
+            function setList(pagenum){
+                $.get("../admin/ActivityInfo.php?type=list&page="+pagenum,function(data){
+                    var jsondata = $.parseJSON(data);
+                    var element = document.getElementById("activities");
+                    element.innerHTML="";
+                    for (var i=0; i<getJsonObjLength(jsondata); i++){
+                        var node=document.createElement("div");
+                        node.setAttribute("class","actcard");
+                        node.innerHTML = "<div class='actcard_img' style='left:60;width:120;height:120;background-image: url(../Public/UI/activity.png);' ></div><div class='actcard_state'><p class='sysTitleBold_c' style='text-align:center;padding-top:40px;'>"+jsondata[i]['state']+"</p><p class='text_w' style=' padding-top:10px; text-align:center'>"+jsondata[i]['joiner']+"人参与</p></div><div class='actcard_detail' ><a class='sysLink_bold' style='margin-left:20px;position:relative; top:10px;' href='activityDetail.html?acid="+jsondata[i]['id']+"' target='_blank'>【"+jsondata[i]['position']+"】"+jsondata[i]['title']+"</a><p class='sysText_c' style='margin-left:20px;margin-top:35px;'>"+jsondata[i]['time']+"</p><p class='text' style='margin-left:20px;margin-top:10px;'>"+jsondata[i]['address']+"</p></div>";
+                        element.appendChild(node);
+                    }
+                }); 
+                
+                for(var k=1;k<9;k++){
+                    var btnbefore = document.getElementById("page"+k);
+                    btnbefore.style.backgroundColor = "#fff";
+                    btnbefore.style.color = "#333";
+                }
+                var pagebtn = document.getElementById("page"+pagenum);
+                pagebtn.style.backgroundColor = "#ffcc33";
+                pagebtn.style.color = "#fff";
+                var nextpage = pagenum+1;
+                document.getElementById("nextpage").onclick = "setList("+nextpage+")";
+                
+            }
+        </script>
+    </head>
+        
+	<body style="">
+        <div class="menu" id="menu_shadow">
+            <a href="index.html"><div id="logo">
+                </div></a>
+            <a href="friends.html"><div class="menukey" style="right:5%; top:25px;">
+                <p class="menuFont" style="color:#C4C4C4">FRIENDS</p>
+                </div></a>
+            <div class="menukey" style="right:5%; top:25px;  background-color:#FED136">
+                <p class="menuFont" style="color:white">ACTIVITY</p>
+            </div>
+            <a href="healthPage.html"><div class="menukey" style="right:5%; top:25px;">
+                <p class="menuFont" style="color:#C4C4C4">BLOG</p>
+                </div></a>
+            <a href="forum.html"><div class="menukey" style="right:5%; top:25px;">
+                <p class="menuFont" style="color:#c4c4c4">FORUM</p>
+                </div></a>
+            <a href="homepage.html"><div class="menukey" style="right:5%; top:25px;">
+                <p class="menuFont" style="color:#C4C4C4">HOME</p>
+                </div></a>
+        </div>
+        
+        <div class="cardBox" style="top:25px; height:1000px;">
+            <div id="leftCard">
+                
+                <a class="getMore" href="activityAdd.html" target='_blank' style="float:right;top:20px;width:150px;">+&nbsp;&nbsp;&nbsp;发起活动</a>
+                <div id="hotacts" style="background-color: #f6f5f2; position:relative">
+                    <p class="sysTitle_c" style="padding-top:15px;">热门活动</p>
+                    <div id="hotActivity" style="border-top:solid 1px;border-top-color:#ebebeb; height:510px; top:15px; position:relative;">
+                        
+                    </div>
+                </div>
+            </div>
+            <div id="activityList">
+                <p class="sysTitle_c" style="padding-top:15px; paddingBottom:15px;">最新活动</p>
+                <div id="activities"></div>
+                
+                <div class="page fr">
+                    <a id="page1" class="a2" href="javascript:void();" onclick="setList(1)">1</a>
+                    <a id="page2" class="a2" href="javascript:void();" onclick="setList(2)">2</a>
+                    <a id="page3" class="a2" href="javascript:void();" onclick="setList(3)">3</a>
+                    <a id="page4" class="a2" href="javascript:void();" onclick="setList(4)">4</a>
+                    <a id="page5" class="a2" href="javascript:void();" onclick="setList(5)">5</a>
+                    <a id="page6" class="a2" href="javascript:void();" onclick="setList(6)">6</a>
+                    <a id="page7" class="a2" href="javascript:void();" onclick="setList(7)">7</a>
+                    <a id="page8" class="a2" href="javascript:void();" onclick="setList(8)">8</a>
+                    <a id="nextpage" class="turing" href="javascript:void();" onclick="setList(2)">下一页</a>
+                </div>
+              
+            </div>
+        </div>
+        
+        
+        
+        
+    </body>
+</html>

@@ -1,0 +1,188 @@
+<html>
+	<head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="forumPage" content="Forum for fitday.">
+        <link rel="stylesheet" href="../Public/css/area.css">
+        <link rel="stylesheet" href="../Public/css/style.css">
+        <link rel="stylesheet" type="text/css" href="../Public/css/zzsc.css" />
+        <link rel="stylesheet" type="text/css" href="../Public/css/buttons.css" />
+        <script type="text/javascript" src="../Public/js/jquery-1.8.2.min.js"></script>
+        
+        <script type="text/javascript">
+            $(document).ready(function() { 
+                for(var i=1;i<5;i++)
+                    setPostList(i);
+            });
+            function add(){
+                var postTitle = document.getElementById("title").value;
+                var postDetail = document.getElementById("detail").value;
+                var anonymous=0;
+                if(document.getElementById("anonymous").checked)
+                    anonymous=1;
+                var typeIndex = document.getElementById("type").selectedIndex;
+                var posttype = document.getElementById("type").options[typeIndex].value;
+                
+                $.ajax({
+                        //提交数据的类型 POST GET
+                        type:"POST",
+                        //提交的网址
+                        url:"../admin/AddPost.php",
+                        //提交的数据
+                        data:{title:postTitle,content:postDetail,ano:anonymous,type:posttype},
+                        //返回数据的格式
+                        datatype: "text",//"xml", "html", "script", "json", "jsonp", "text".
+                        success:function(data){
+                            if(data!=true)
+                                alert(data);
+                            else{
+                                alert(data);
+                                location.href="forum.html";
+                            }
+                        }
+                    });
+            }
+            
+            function setPostList(posttype){
+                $.get("../admin/PostInfo.php?type=list&posttype="+posttype,function(data){
+                    var jsondata = $.parseJSON(data);
+                    var elid = "postlist"+posttype;
+                    var element = document.getElementById(elid);
+                    element.innerHTML="";
+                    for (var i=0; i<5; i++){
+                        var node=document.createElement("div");
+                        node.setAttribute("class","card");
+                        node.style.width = "18%";
+                        node.style.height = "300";
+                        node.style.float = "left";
+                        if(i>0&&i<4)
+                            node.style.marginLeft = "2.5%";
+                        if(i==4)
+                            node.style.float = "right";
+                        node.innerHTML = "<div class='titleBold' style='margin:10px'><a class='sysLink_bold' style='font-size:18px' href='postDetail.html?postid="+jsondata[i]['postid']+"' target='_blank'>"+jsondata[i]['title']+"</a></div><p class='textBold' style='margin:10px'>"+jsondata[i]['user']+"</p><p class='textBold' style='margin:10px'>"+jsondata[i]['time']+"</p><p class='text' style='width:90%;margin:10px'>"+jsondata[i]['content']+"</p>";
+                        element.appendChild(node);
+                    }
+                }); 
+            }
+        </script>
+    </head>
+
+	<body style="background-color:#f1f2f3">
+        <div class="menu" id="menu_shadow">
+            <a href="index.html"><div id="logo">
+                </div></a>
+            <a href="friends.html"><div class="menukey" style="right:5%; top:25px;">
+                <p class="menuFont" style="color:#C4C4C4">FRIENDS</p>
+                </div></a>
+            <a href=activity.html><div class="menukey" style="right:5%; top:25px;">
+                <p class="menuFont" style="color:#C4C4C4">ACTIVITY</p>
+                </div></a>
+            <a href="healthPage.html"><div class="menukey" style="right:5%; top:25px;">
+                <p class="menuFont" style="color:#C4C4C4">BLOG</p>
+                </div></a>
+            <div class="menukey" style="right:5%; top:25px; background-color:#FED136">
+                <p class="menuFont" style="color:white">FORUM</p>
+            </div>
+            <a href="homepage.html"><div class="menukey" style="right:5%; top:25px;">
+                <p class="menuFont" style="color:#C4C4C4">HOME</p>
+                </div></a>
+        </div>
+        
+        <div class="cardBox" style="top:25px; height:440px;">
+            <div id="editBox" class="card" >
+                <p class="sysTitle_c" style="margin-top:15px;margin-bottom:15px;">标题</p>
+                <input id="title" style="width:100%;height:30px;"></input>
+                <p class="sysTitle_c" style="margin-top:15px;margin-bottom:15px;">详情</p>
+                <textarea id="detail" style="width:100%;height:200px;"></textarea>
+                <div>
+                <select id="type" style="margin-top:15px;margin-bottom:15px;width:150px;height:30px;position:relative;float:left;" class="sysText_c">
+                    <option selected="selected" value="00">选择板块</option>
+                    <option value="03">求助</option>
+                    <option value="04">灌水</option>
+                    <option value="01">健身</option>
+                    <option value="02">健康</option>
+                </select>
+                <input class="ghbutton" type="submit" onclick="add()"  value="发  布" id="submitBtn"></input>
+                <label class="" style="margin-top:17px;margin-bottom:15px;width:90px;height:30px;position:relative;float:right"><input type="checkbox" id="anonymous" value="true"/>匿名发布</label>
+                </div>
+            </div>
+            
+            <div id="recCardBox">
+                <div class="card" style="height:65%;padding-left:30px; padding-right:30px;">
+                    <p class="sysTitle_c" style="margin-top:15px;margin-bottom:15px;">社区热点</p>
+                    <div style="border-top:solid 1px;border-top-color:#EBEBEB;border-bottom:solid 1px;border-bottom-color:#EBEBEB; height:80px; padding-top:15px;">
+                       <div class="tag" style="width:60px;">
+                            <a class="sysText_c">饮食</a>
+                        </div>
+                        <div class="tag" style="width:100px;">
+                            <a class="sysText_c">有氧运动</a>
+                        </div>
+                        <div class="tag" style="width:60px;">
+                            <a class="sysText_c">瑜伽</a>
+                        </div>
+                        <div class="tag" style="width:120px;">
+                            <a class="sysText_c">腹肌撕裂者</a>
+                        </div>
+                        <div class="tag" style="width:60px;">
+                            <a class="sysText_c">早餐</a>
+                        </div>
+                        <div class="tag" style="width:60px;">
+                            <a class="sysText_c">原创</a>
+                        </div>
+                        <div class="tag" style="width:120px;">
+                            <a class="sysText_c">上海马拉松</a>
+                        </div>
+                    </div>
+                    <div style="border-bottom:solid 1px;border-bottom-color:#EBEBEB; height:30px; padding-top:15px;">
+                        <a class="sysText_c">【活动】XXXXXXXX</a>
+                    </div>
+                    <div style="border-bottom:solid 1px;border-bottom-color:#EBEBEB; height:30px; padding-top:15px;">
+                        <a class="sysText_c">【编辑精选】XXXXXXXXXXXXXXXXXXXXX</a>
+                    </div>
+                    <div style="height:30px; padding-top:15px;">
+                        <a class="sysText_c">【帮助】论坛小管家</a>
+                    </div>
+                </div>
+                
+                <div class="card" style="height:30%; top:5%;">
+                    
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="lcardBox" style="top:60px;">
+            <span class="title">锻炼健身</span>
+            <a class="getMore" href="www.baidu.com" style="width:100px;float:right;top:-20px;">查看更多></a>
+            <div id="postlist1" style="margin-top:30px;">
+                
+            </div>
+        </div>
+        
+        <div class="lcardBox" style="top:60px;">
+            <span class="title">健康养生</span>
+            <a class="getMore" href="www.baidu.com" style="width:100px;float:right;top:-5px;">查看更多></a>
+            <div id="postlist2" style="margin-top:30px;">
+                
+            </div>
+        </div>
+            
+        <div class="lcardBox" style="top:60px;">
+            <span class="title">求助</span>
+            <a class="getMore" href="www.baidu.com" style="width:100px;float:right;top:-5px;">查看更多></a>
+            <div id="postlist3" style="margin-top:30px;">
+                
+            </div>
+        </div>
+        
+        <div class="lcardBox" style="top:60px;">
+            <span class="title">灌水</span>
+            <a class="getMore" href="www.baidu.com" style="width:100px;float:right;top:-5px;">查看更多></a>
+            <div id="postlist4" style="margin-top:30px;">
+                
+            </div>
+        </div>
+        
+    </body>
+    
+</html>

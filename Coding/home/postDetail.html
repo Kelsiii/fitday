@@ -1,0 +1,129 @@
+<html>
+	<head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="forumPage" content="Forum for fitday.">
+        <link rel="stylesheet" href="../Public/css/area.css">
+        <link rel="stylesheet" href="../Public/css/style.css">
+        <link rel="stylesheet" type="text/css" href="../Public/css/zzsc.css" />
+        <link rel="stylesheet" type="text/css" href="../Public/css/buttons.css" />
+        <script type="text/javascript" src="../Public/js/jquery-1.8.2.min.js"></script>
+        
+        <script type="text/javascript">
+            
+            var id = GetQueryString("postid");
+            $(document).ready(function() { 
+                setDetail(id);
+                setAdvice(id);
+            });
+            function getJsonObjLength(jsonObj) {
+                var Length = 0;
+                for (var item in jsonObj) {
+                    Length++;
+                }
+                return Length;
+            }
+            function GetQueryString(name){
+                var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if(r!=null)return  unescape(r[2]); return null;
+            }
+            
+            function setDetail(id){
+                $.getJSON("../admin/PostInfo.php?type=detail&id="+id,function(data){
+                    document.getElementById("PostTitle").innerHTML = data.title;
+                    document.getElementById("PostTime").innerHTML = data.time;
+                    document.getElementById("PostUser").innerHTML = data.user;
+                    document.getElementById("PostDetail").innerHTML = data.content;
+                    
+                });
+            }
+            
+           function giveAdvice(){
+                var newadvice = document.getElementById("newadvice").value;        
+                $.ajax({
+                        //提交数据的类型 POST GET
+                        type:"POST",
+                        //提交的网址
+                        url:"../admin/PostInfo.php?type=give&id="+id,
+                        //提交的数据
+                        data:{advice:newadvice},
+                        //返回数据的格式
+                        datatype: "text",//"xml", "html", "script", "json", "jsonp", "text".
+                        success:function(data){
+                            if(data!=true)
+                                alert(data);
+                            else{
+                                alert("建议发布成功！");
+                                document.getElementById("newadvice").value="";  
+                                setAdvice(id);
+                    }
+                            
+                        }
+                    });
+            }
+            
+           function setAdvice(id){
+                $.get("../admin/PostInfo.php?type=getadvice&id="+id,function(data){
+                    var jsondata = $.parseJSON(data);
+                    var element = document.getElementById("advicelist");
+                    element.innerHTML="";
+                    for (var i=0; i<getJsonObjLength(jsondata); i++){
+                        var node=document.createElement("div");
+                        node.style.marginBottom = 15;
+                        node.innerHTML = "<span class='textBold' >"+jsondata[i]['advisor']+"："+"</span><span class='text'>"+jsondata[i]['advice']+"</span>";
+                        element.appendChild(node);
+                    }
+                }); 
+            }
+        </script>
+        </script>
+    </head>
+
+	<body style="background-color:#f1f2f3">
+        <div class="menu" id="menu_shadow">
+            <a href="index.html"><div id="logo">
+                </div></a>
+            <a href="friends.html"><div class="menukey" style="right:5%; top:25px;">
+                <p class="menuFont" style="color:#C4C4C4">FRIENDS</p>
+                </div></a>
+            <a href=activity.html><div class="menukey" style="right:5%; top:25px;">
+                <p class="menuFont" style="color:#C4C4C4">ACTIVITY</p>
+                </div></a>
+            <a href="healthPage.html"><div class="menukey" style="right:5%; top:25px;">
+                <p class="menuFont" style="color:#C4C4C4">BLOG</p>
+                </div></a>
+            <a href="forum.html"><div class="menukey" style="right:5%; top:25px; background-color:#FED136">
+                <p class="menuFont" style="color:white">FORUM</p>
+                </div></a>
+            <a href="homepage.html"><div class="menukey" style="right:5%; top:25px;">
+                <p class="menuFont" style="color:#C4C4C4">HOME</p>
+                </div></a>
+        </div>
+        
+        <div class="cardBox" style="top:25px; ">
+            <div id="editBox" class="card" >
+                <p id="PostTitle" class="titleBold" style="margin-top:15px;margin-bottom:15px;font-size:22px;"></p>
+                <span id="PostUser" class="textBold" style="margin-bottom:15px;margin-right:20px;font-size:17px;"></span>
+                <span id="PostTime" class="textBold" style="font-size:17px;"></span>
+                <p id="PostDetail" class="text" style="margin-top:20px;margin-bottom:20px;"></p>
+                
+                <div style="padding-top:15px;padding-bottom:15px;border-top:solid 1px;border-top-color:#EBEBEB;border-bottom:solid 1px;border-bottom-color:#EBEBEB;  padding-top:15px;">
+                    <p class="titleBold" style="margin-bottom:15px;">建议</p>
+                    <div id="advicelist">
+                       
+                    </div>
+                </div>
+            </div>
+            
+            
+                
+            <div id="recCardBox">    
+                <div class="card" style="height:300px;padding-left:30px; padding-right:30px;padding-top:25px;">
+                    <textarea id="newadvice" style="width:100%;height:180px;"></textarea>
+                    <input class="ghbutton" type="submit" onclick="giveAdvice()"  value="给Ta建议" id="submitBtn"></input>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

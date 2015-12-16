@@ -1,0 +1,1017 @@
+<html>
+	<head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="forumPage" content="Forum for fitday.">
+        <link rel="stylesheet" href="../Public/css/area.css">
+        <link rel="stylesheet" href="../Public/css/style.css">
+        <link rel="stylesheet" type="text/css" href="../Public/css/zzsc.css" />
+        <link rel="stylesheet" type="text/css" href="../Public/css/buttons.css" />
+        <script type="text/javascript" src="js/select.js"></script>
+        <script type="text/javascript" src="../Public/js/jquery-1.8.2.min.js"></script>
+         
+        <style type="text/css">
+            .menuBtn{width: 100%;height: 50px; margin-top: 20px;  -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius:5px; font-family: 微软雅黑;font-size: 16px;color: #ffcc33; background-color:white; font-weight: 400;  text-align: center;line-height: 50px;}
+            .menuBtn:hover{background:#FCE78C;  color: white;}
+            .menuBtn:active{ background-color: #ffcc33;   }
+        </style>
+        
+        <script type="text/javascript">
+            function basicEdit(){
+                document.getElementById("username").style.visibility = "hidden";
+                document.getElementById("namebox").style.visibility = "";
+                document.getElementById("usertype").style.visibility = "hidden";
+                document.getElementById("typebox").style.visibility = "";
+                document.getElementById("basicE").style.visibility = "hidden";
+                document.getElementById("basicF").style.visibility = "";
+            }
+            function basicEditFinished(){
+                document.getElementById("username").style.visibility = "";
+                document.getElementById("namebox").style.visibility = "hidden";
+                document.getElementById("usertype").style.visibility = "";
+                document.getElementById("typebox").style.visibility = "hidden";
+                document.getElementById("basicE").style.visibility = "";
+                document.getElementById("basicF").style.visibility = "hidden";
+            }
+            function targetEdit(){
+                document.getElementById("exetar").style.visibility = "hidden";
+                document.getElementById("exetarbox").style.visibility = "";
+                document.getElementById("exetypebox").style.visibility = "";
+                document.getElementById("bmitar").style.visibility = "hidden";
+                document.getElementById("bmitarbox").style.visibility = "";
+                document.getElementById("targetE").style.visibility = "hidden";
+                document.getElementById("targetF").style.visibility = "";
+            }
+            function targetEditFinished(){
+                document.getElementById("exetar").style.visibility = "";
+                document.getElementById("exetarbox").style.visibility = "hidden";
+                document.getElementById("exetypebox").style.visibility = "hidden";
+                document.getElementById("bmitar").style.visibility = "";
+                document.getElementById("bmitarbox").style.visibility = "hidden";
+                document.getElementById("targetE").style.visibility = "";
+                document.getElementById("targetF").style.visibility = "hidden";
+            }
+            
+            function showExe(){
+                document.getElementById("exercise").style.visibility = "";
+                document.getElementById("sleep").style.visibility = "hidden";
+                document.getElementById("health").style.visibility = "hidden";
+                document.getElementById("setting").style.visibility = "hidden";
+                
+                document.getElementById("exeBtn").style.background = "ffcc33"
+                document.getElementById("exeBtn").style.color = "ffffff"
+                document.getElementById("exeBtn").onmouseover=function(){
+                    document.getElementById("exeBtn").style.background = "#FCE78C";
+                    document.getElementById("exeBtn").style.color = "#ffffff";
+                }
+                document.getElementById("exeBtn").onmouseout=function(){
+                    document.getElementById("exeBtn").style.background = "#ffcc33";
+                    document.getElementById("exeBtn").style.color = "#ffffff";
+                }
+                    
+                document.getElementById("settingBtn").style.color = "#ffcc33";
+                document.getElementById("settingBtn").style.background = "#ffffff";
+                document.getElementById("settingBtn").onmouseover=function(){
+                    document.getElementById("settingBtn").style.background = "#FCE78C";
+                    document.getElementById("settingBtn").style.color = "#ffffff";
+                }
+                document.getElementById("settingBtn").onmouseout=function(){
+                    document.getElementById("settingBtn").style.background = "#ffffff";
+                    document.getElementById("settingBtn").style.color = "#ffcc33";
+                }
+                
+                document.getElementById("sleepBtn").style.color = "#ffcc33";
+                document.getElementById("sleepBtn").style.background = "#ffffff";
+                document.getElementById("sleepBtn").onmouseover=function(){
+                    document.getElementById("sleepBtn").style.background = "#FCE78C";
+                    document.getElementById("sleepBtn").style.color = "#ffffff";
+                }
+                document.getElementById("sleepBtn").onmouseout=function(){
+                    document.getElementById("sleepBtn").style.background = "#ffffff";
+                    document.getElementById("sleepBtn").style.color = "#ffcc33";
+                }
+                
+                document.getElementById("healthBtn").style.color = "#ffcc33";
+                document.getElementById("healthBtn").style.background = "#ffffff";
+                document.getElementById("healthBtn").onmouseover=function(){
+                    document.getElementById("healthBtn").style.background = "#FCE78C";
+                    document.getElementById("healthBtn").style.color = "#ffffff";
+                }
+                document.getElementById("healthBtn").onmouseout=function(){
+                    document.getElementById("healthBtn").style.background = "#ffffff";
+                    document.getElementById("healthBtn").style.color = "#ffcc33";
+                }
+                
+                setExe("today");
+            } 
+            function showHealth(){
+                document.getElementById("exercise").style.visibility = "hidden";
+                document.getElementById("sleep").style.visibility = "hidden";
+                document.getElementById("health").style.visibility = "";
+                document.getElementById("setting").style.visibility = "hidden";
+                document.getElementById("healthBtn").style.background = "#ffcc33";
+                document.getElementById("healthBtn").style.color = "#ffffff";
+                
+                document.getElementById("exeBtn").style.color = "#ffcc33";
+                document.getElementById("exeBtn").style.background = "#ffffff";
+                document.getElementById("exeBtn").onmouseover=function(){
+                    document.getElementById("exeBtn").style.background = "#FCE78C";
+                    document.getElementById("exeBtn").style.color = "#ffffff";
+                }
+                document.getElementById("exeBtn").onmouseout=function(){
+                    document.getElementById("exeBtn").style.background = "#ffffff";
+                    document.getElementById("exeBtn").style.color = "#ffcc33";
+                }
+                
+                document.getElementById("sleepBtn").style.color = "#ffcc33";
+                document.getElementById("sleepBtn").style.background = "#ffffff";
+                document.getElementById("sleepBtn").onmouseover=function(){
+                    document.getElementById("sleepBtn").style.background = "#FCE78C";
+                    document.getElementById("sleepBtn").style.color = "#ffffff";
+                }
+                document.getElementById("sleepBtn").onmouseout=function(){
+                    document.getElementById("sleepBtn").style.background = "#ffffff";
+                    document.getElementById("sleepBtn").style.color = "#ffcc33";
+                }
+                
+                document.getElementById("settingBtn").style.color = "#ffcc33";
+                document.getElementById("settingBtn").style.background = "#ffffff";
+                document.getElementById("settingBtn").onmouseover=function(){
+                    document.getElementById("settingBtn").style.background = "#FCE78C";
+                    document.getElementById("settingBtn").style.color = "#ffffff";
+                }
+                document.getElementById("settingBtn").onmouseout=function(){
+                    document.getElementById("settingBtn").style.background = "#ffffff";
+                    document.getElementById("settingBtn").style.color = "#ffcc33";
+                }
+                
+                document.getElementById("healthBtn").onmouseover=function(){
+                    document.getElementById("healthBtn").style.background = "#FCE78C";
+                    document.getElementById("healthBtn").style.color = "#ffffff";
+                }
+                document.getElementById("healthBtn").onmouseout=function(){
+                    document.getElementById("healthBtn").style.background = "#ffcc33";
+                    document.getElementById("healthBtn").style.color = "#ffffff";
+                }
+                setBMIChart();
+            }
+            function showSleep(){
+                document.getElementById("exercise").style.visibility = "hidden";
+                document.getElementById("sleep").style.visibility = "";
+                document.getElementById("health").style.visibility = "hidden";
+                document.getElementById("setting").style.visibility = "hidden";
+                document.getElementById("sleepBtn").style.background = "#ffcc33";
+                document.getElementById("sleepBtn").style.color = "#ffffff";
+                
+                document.getElementById("exeBtn").style.color = "#ffcc33";
+                document.getElementById("exeBtn").style.background = "#ffffff";
+                document.getElementById("exeBtn").onmouseover=function(){
+                    document.getElementById("exeBtn").style.background = "#FCE78C";
+                    document.getElementById("exeBtn").style.color = "#ffffff";
+                }
+                document.getElementById("exeBtn").onmouseout=function(){
+                    document.getElementById("exeBtn").style.background = "#ffffff";
+                    document.getElementById("exeBtn").style.color = "#ffcc33";
+                }
+                
+                document.getElementById("settingBtn").style.color = "#ffcc33";
+                document.getElementById("settingBtn").style.background = "#ffffff";
+                document.getElementById("settingBtn").onmouseover=function(){
+                    document.getElementById("settingBtn").style.background = "#FCE78C";
+                    document.getElementById("settingBtn").style.color = "#ffffff";
+                }
+                document.getElementById("settingBtn").onmouseout=function(){
+                    document.getElementById("settingBtn").style.background = "#ffffff";
+                    document.getElementById("settingBtn").style.color = "#ffcc33";
+                }
+                
+                document.getElementById("healthBtn").style.color = "#ffcc33";
+                document.getElementById("healthBtn").style.background = "#ffffff";
+                document.getElementById("healthBtn").onmouseover=function(){
+                    document.getElementById("healthBtn").style.background = "#FCE78C";
+                    document.getElementById("healthBtn").style.color = "#ffffff";
+                }
+                document.getElementById("healthBtn").onmouseout=function(){
+                    document.getElementById("healthBtn").style.background = "#ffffff";
+                    document.getElementById("healthBtn").style.color = "#ffcc33";
+                }
+                
+                document.getElementById("sleepBtn").onmouseover=function(){
+                    document.getElementById("sleepBtn").style.background = "#FCE78C";
+                    document.getElementById("sleepBtn").style.color = "#ffffff";
+                }
+                document.getElementById("sleepBtn").onmouseout=function(){
+                    document.getElementById("sleepBtn").style.background = "#ffcc33";
+                    document.getElementById("sleepBtn").style.color = "#ffffff";
+                }
+                setSlp("today");
+            }
+            function showSetting(){
+                document.getElementById("exercise").style.visibility = "hidden";
+                document.getElementById("sleep").style.visibility = "hidden";
+                document.getElementById("health").style.visibility = "hidden";
+                document.getElementById("setting").style.visibility = "";
+                document.getElementById("settingBtn").style.background = "#ffcc33";
+                document.getElementById("settingBtn").style.color = "#ffffff";
+                
+                document.getElementById("exeBtn").style.color = "#ffcc33";
+                document.getElementById("exeBtn").style.background = "#ffffff";
+                document.getElementById("exeBtn").onmouseover=function(){
+                    document.getElementById("exeBtn").style.background = "#FCE78C";
+                    document.getElementById("exeBtn").style.color = "#ffffff";
+                }
+                document.getElementById("exeBtn").onmouseout=function(){
+                    document.getElementById("exeBtn").style.background = "#ffffff";
+                    document.getElementById("exeBtn").style.color = "#ffcc33";
+                }
+                
+                document.getElementById("sleepBtn").style.color = "#ffcc33";
+                document.getElementById("sleepBtn").style.background = "#ffffff";
+                document.getElementById("sleepBtn").onmouseover=function(){
+                    document.getElementById("sleepBtn").style.background = "#FCE78C";
+                    document.getElementById("sleepBtn").style.color = "#ffffff";
+                }
+                document.getElementById("sleepBtn").onmouseout=function(){
+                    document.getElementById("sleepBtn").style.background = "#ffffff";
+                    document.getElementById("sleepBtn").style.color = "#ffcc33";
+                }
+                
+                document.getElementById("healthBtn").style.color = "#ffcc33";
+                document.getElementById("healthBtn").style.background = "#ffffff";
+                document.getElementById("healthBtn").onmouseover=function(){
+                    document.getElementById("healthBtn").style.background = "#FCE78C";
+                    document.getElementById("healthBtn").style.color = "#ffffff";
+                }
+                document.getElementById("healthBtn").onmouseout=function(){
+                    document.getElementById("healthBtn").style.background = "#ffffff";
+                    document.getElementById("healthBtn").style.color = "#ffcc33";
+                }
+                
+                document.getElementById("settingBtn").onmouseover=function(){
+                    document.getElementById("settingBtn").style.background = "#FCE78C";
+                    document.getElementById("settingBtn").style.color = "#ffffff";
+                }
+                document.getElementById("settingBtn").onmouseout=function(){
+                    document.getElementById("settingBtn").style.background = "#ffcc33";
+                    document.getElementById("settingBtn").style.color = "#ffffff";
+                }
+                
+                setPersonalData();
+            }
+            
+            
+        </script>
+        <script type="text/javascript" id="setFunc">
+            function setPersonalData(){
+                $.getJSON("../admin/UserInfo.php?type=get",function(data){
+                    document.getElementById("userid").innerHTML = data.userid;
+                    document.getElementById("username").innerHTML = data.nickname;
+                    document.getElementById("namebox").value = data.nickname;
+                    document.getElementById("usertype").innerHTML = data.usertype;
+                    document.getElementById("bmitar").innerHTML = data.bmitar;
+                    document.getElementById("exetar").innerHTML = data.cartar+" Calorie";
+                    document.getElementById("bmitarbox").value = data.bmitar;
+                    document.getElementById("exetarbox").value = data.cartar;
+                });
+            }
+            function modifyTargetData(){
+                var exetar = document.getElementById("exetarbox").value;
+                var bmitar = document.getElementById("bmitarbox").value;
+                
+                $.ajax({
+                    //提交数据的类型 POST GET
+                    type:"POST",
+                    //提交的网址
+                    url:"../admin/UserInfo.php?type=modifyTarget",
+                    //提交的数据
+                    data:{exetar:exetar,bmitar:bmitar},
+                    //返回数据的格式
+                    datatype: "text",//"xml", "html", "script", "json", "jsonp", "text".
+                    
+                    success:function(data){
+                        if(data!=true)
+                            alert(data);
+                        else{
+                            targetEditFinished();
+                            setPersonalData();
+                        }
+                    }
+                });
+            }
+            function modifyPersonalData(){
+                var nickname = document.getElementById("namebox").value;
+                var hourIndex = document.getElementById("typebox").selectedIndex;
+                var type = document.getElementById("typebox").options[hourIndex].value;
+                
+                $.ajax({
+                    //提交数据的类型 POST GET
+                    type:"POST",
+                    //提交的网址
+                    url:"../admin/UserInfo.php?type=modifybasic",
+                    //提交的数据
+                    data:{nickname:nickname,usertype:type,type:"modifybasic"},
+                    //返回数据的格式
+                    datatype: "text",//"xml", "html", "script", "json", "jsonp", "text".
+                    
+                    success:function(data){
+                        if(data!=true)
+                            alert(data);
+                        else{
+                            basicEditFinished();
+                            setPersonalData();
+                        }
+                    }
+                });
+            }
+        </script>
+        <script type="text/javascript" id="slpFunc">
+            function setSlp(type){
+                setSlpData(type);
+                setSlpList(type);
+                setSlpChart(type);
+            }
+            function setSlpChart(type){
+                $.get("../admin/SlpChartInfo.php?query=pie&type="+type,function(data){
+                    setSlpPie(data);
+                });
+                $.get("../admin/SlpChartInfo.php?query=line",function(data){
+                    var array = data.split(",");
+                    var n = array.length;
+                    var fullslparray = array.slice(0,n/3);
+                    var slparray = array.slice(n/3,n/3*2);
+                    var datearray = array.slice(n/3*2,n);
+                    setSlpLine(fullslparray,slparray,datearray);
+                });
+            }
+            function setSlpData(type){
+                $.getJSON("../admin/SlpInfo.php?listtype=&type="+type,function(data){
+                    document.getElementById("slptime").innerHTML = data.slptime;
+                    document.getElementById("fullslp").innerHTML = data.full_slptime;
+                });
+                
+                if(type=="today")
+                    document.getElementById("slpChoose").innerHTML = "今天";
+                if(type=="week")
+                    document.getElementById("slpChoose").innerHTML = "本周";
+                if(type=="month")
+                    document.getElementById("slpChoose").innerHTML = "本月";
+                if(type=="year")
+                    document.getElementById("slpChoose").innerHTML = "年度";
+                setSlpPie(25);
+                setSlpLine();
+            }
+            function setSlpList(type){
+                $.get("../admin/SlpInfo.php?type=list&listtype="+type,function(data){ 
+                   
+                    var jsondata = $.parseJSON(data);
+                    var element = document.getElementById("slpdetail");
+                    element.innerHTML = "";
+                    var firstnode = document.createElement("li");
+                    firstnode.setAttribute("class","dttd");
+                    firstnode.innerHTML = "<div style='position:relative;float:left;width:200px;line-height:30px;text-align:center' class='sysText'>Start Time</div><div style='position:relative;float:left;width:200px;line-height:30px;text-align:center' class='sysText'>End Time</div><div style='position:relative;float:left;width:150px;line-height:30px;text-align:center' class='sysText'>Sleep Time</div><div style='position:relative;float:left;width:150px;line-height:30px;text-align:center' class='sysText'>Full Sleep Time</div>";
+                    element.appendChild(firstnode);
+                    for (var i=0; i<getJsonObjLength(jsondata); i++){
+                        var node=document.createElement("li");
+                        node.setAttribute("class","exeTr");
+                        node.innerHTML = "<div style='position:relative;float:left;width:200px;line-height:30px;text-align:center' class='sysText_c'>"+jsondata[i]['start']+"</div><div style='position:relative;float:left;width:200px;line-height:30px;text-align:center' class='sysText_c'>"+jsondata[i]['end']+"</div><div style='position:relative;float:left;width:150px;line-height:30px;text-align:center' class='sysText_c'>"+jsondata[i]['slptime']+"</div><div style='position:relative;float:left;width:150px;line-height:30px;text-align:center' class='sysText_C'>"+jsondata[i]['fullslptime'];
+                        element.appendChild (node);
+                    }
+                });   
+            }
+        </script>
+        <script type="text/javascript" id="exeFunc">
+           
+            $(document).ready(function() { 
+                setExe("today");
+            });
+            
+            function setExe(type){
+                setExeData(type);
+                setExeList(type);
+                setExeChart(type);
+            }
+            function setExeChart(type){
+                $.get("../admin/ExeChartInfo.php?query=pie&type="+type,function(data){
+                    setExePie(data);
+                });
+                $.get("../admin/ExeChartInfo.php?query=line",function(data){
+                    var array = data.split(",");
+                    setExeLine(array);
+                });
+            }
+            function setExeData(type){
+                $.getJSON("../admin/ExeInfo.php?listtype=&type="+type,function(data){
+                    document.getElementById("exetime").innerHTML = data.exetime;
+                    document.getElementById("execalorie").innerHTML = data.calorie;
+                });
+                if(type=="today")
+                    document.getElementById("exeChoose").innerHTML = "今天";
+                if(type=="week")
+                    document.getElementById("exeChoose").innerHTML = "本周";
+                if(type=="month")
+                    document.getElementById("exeChoose").innerHTML = "本月";
+                if(type=="year")
+                    document.getElementById("exeChoose").innerHTML = "年度";
+                
+            }
+            function getJsonObjLength(jsonObj) {
+                var Length = 0;
+                for (var item in jsonObj) {
+                    Length++;
+                }
+                return Length;
+            }
+            function setExeList(type){
+                $.get("../admin/ExeInfo.php?type=list&listtype="+type,function(data){ 
+                   
+                    var jsondata = $.parseJSON(data);
+                    var element = document.getElementById("exedetail");
+                    element.innerHTML = "";
+                    var firstnode = document.createElement("li");
+                    firstnode.setAttribute("class","dttd");
+                    firstnode.innerHTML = "<div style='position:relative;float:left;width:150px;line-height:30px;text-align:center' class='sysText'>Date</div><div style='position:relative;float:left;width:200px;line-height:30px;text-align:center' class='sysText'>Type</div><div style='position:relative;float:left;width:200px;line-height:30px;text-align:center' class='sysText'>Time</div><div style='position:relative;float:left;width:150px;line-height:30px;text-align:center' class='sysText'>Calorie</div>";
+                    element.appendChild(firstnode);
+                    for (var i=0; i<getJsonObjLength(jsondata); i++){
+                        var node=document.createElement("li");
+                        node.setAttribute("class","exeTr");
+                        node.innerHTML = "<div style='position:relative;float:left;width:150px;line-height:30px;text-align:center' class='sysText_c'>"+jsondata[i]['date']+"</div><div style='position:relative;float:left;width:200px;line-height:30px;text-align:center' class='sysText_c'>"+jsondata[i]['type']+"</div><div style='position:relative;float:left;width:200px;line-height:30px;text-align:center' class='sysText_C'>"+jsondata[i]['exetime']+"</div><div style='position:relative;float:left;width:150px;line-height:30px;text-align:center' class='sysText_c'>"+jsondata[i]['calorie']+"</div>";
+                        element.appendChild (node);
+                    }
+                });   
+            }
+            
+            
+            
+            
+        </script>
+        <script type="text/javascript" id="hthFunc">
+            function setBMIChart(){
+                $.get("../admin/BMIInfo.php?type=get",function(data){
+                    setBMIRound(data);
+                });
+                $.get("../admin/BMIInfo.php?type=line",function(data){
+                    var array = data.split(",");
+                    var n = array.length;
+                    var dataarray = array.slice(0,n/2);
+                    var datearray = array.slice(n/2,n);
+                    setBMILine(dataarray,datearray);
+                });
+            }
+            
+            function setHealth(){
+                $.ajax({
+                    //提交数据的类型 POST GET
+                    type:"GET",
+                    //提交的网址
+                    url:"../admin/BMIInfo.php",
+                    //提交的数据
+                    data:{type:"set",height:document.getElementById("heightInput").value,weight:document.getElementById("weightInput").value},
+                    //返回数据的格式
+                    datatype: "text",//"xml", "html", "script", "json", "jsonp", "text".
+                    success:function(data){
+                        alert(data);
+                        document.getElementById("heightInput").value="";
+                        document.getElementById("weightInput").value="";
+                    }
+                });
+                
+                setBMIChart();
+            }
+        </script>
+        
+        <script src="./js/echarts-all.js"></script>
+        <script type="text/javascript" id="charts">
+            function setExePie(num){
+                var myChart = echarts.init(document.getElementById('exepie'));
+                var labelTop = {
+                normal : {
+                    color: '#F47A4D',
+                    label : {   
+                        show : true,
+                        position : 'center',
+                        formatter : '{b}',
+                        textStyle: {baseline : 'bottom', color:'#F47A4D',fontSize:14,fontWeight:400}
+                    },
+                    labelLine : {
+                        show : false
+                    }
+                }};
+                var labelFromatter = {
+                    normal : {
+                        label : {
+                            formatter : function (params){
+                                return 100 - params.value + '%'},
+                            textStyle: {color:'#F47A4D',baseline : 'top',fontSize:18, fontWeight:600}
+                        }
+                    }
+                };
+                var labelBottom = {
+                    normal : {
+                        color: '#ccc',
+                        label : {
+                            show : true,
+                            position : 'center'},
+                            labelLine : {show : false}
+                    },
+                    emphasis: {color: 'rgba(0,0,0,0)'}
+                };
+                var radius = [80, 55];
+                var option = {
+                    series : [
+                        {
+                            type : 'pie',
+                            radius : radius,
+                            x: '0%', // for funnel
+                            itemStyle : labelFromatter,
+                            data : [
+                                {name:'other', value:100-num, itemStyle : labelBottom},
+                                {name:'运动目标达成', value:num,itemStyle : labelTop}
+                            ]
+                        }
+                    ]
+                };
+                myChart.setOption(option);
+            }
+            
+            function setExeLine(array){
+                var myChart = echarts.init(document.getElementById('exeline'));
+                var option = {
+                    tooltip : {trigger: 'axis'},
+                    legend: {data:['卡路里']},
+                    calculable : true,
+                    xAxis : [
+                        {type : 'category',
+                        data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+                         axisLine: {lineStyle:{color:'#757575'}}}],
+                    yAxis : [
+                        {type : 'value',
+                         axisLine: {lineStyle:{color:'#757575'}}}],
+                    series : [
+                      { name:'卡路里',
+                        type:'bar',
+                        data:array,
+                        markPoint : {
+                            data : [
+                                 {type : 'max', name: ''},
+                                 {type : 'min', name: ''}]
+                        },
+                        /*markLine : {
+                            data : [{type : 'average', value:600, name: '目标'}]
+                        }*/
+                    }]
+                };
+                myChart.setOption(option); 
+            }
+            
+            function setBMILine(dataarray,datearray){
+                var myChart = echarts.init(document.getElementById('bmiline'));
+                var option = {
+                    tooltip : {trigger: 'axis'},
+                    calculable : true,
+                    xAxis : [
+                        {type : 'category',   
+                         boundaryGap : false,
+                         data : datearray,
+                         axisLine: {lineStyle:{color:'#757575'}}
+                        }
+                    ],
+                    yAxis : [{type : 'value',
+                         axisLine: {lineStyle:{color:'#757575'}}}],
+                    series : [
+                        {
+                            name:'BMI',
+                            type:'line',
+                            data:dataarray,
+                            markPoint : {
+                                data : [
+                                    {type : 'max', name: '最大值'},
+                                    {type : 'min', name: '最小值'}
+                                ],
+                            itemStyle :{
+                                normal:{
+                                    color:'#408829'
+                                }
+                            }
+                            },
+                            markLine : {
+                                data : [{type:'average',value : 12, name: '目标'}],
+                            itemStyle :{
+                                normal:{
+                                    color:'#408829',
+                                    lineStyle:{color:'#408829'}
+                                }
+                            }
+                            },
+                            itemStyle :{
+                                normal:{
+                                    color:'#408829',
+                                    lineStyle:{color:'#408829'}
+                                }
+                            }
+                        }
+                    ]
+                };   
+                myChart.setOption(option); 
+            }
+            
+            function setBMIRound(data){
+                var myChart = echarts.init(document.getElementById('bmiround'));
+                option = {
+                    series : [
+                        {
+                            name:'个性化仪表盘',
+                            type:'gauge',
+                            center : ['50%', '50%'],    // 默认全局居中
+                            radius : [0, '75%'],
+                            startAngle: 140,
+                            endAngle : -140,
+                            min: 13,                     // 最小值
+                            max: 40,                   // 最大值
+                            precision: 0.1,               // 小数精度，默认为0，无小数点
+                            splitNumber: 10,             // 分割段数，默认为5
+                            axisLine: {            // 坐标轴线
+                                show: true,        // 默认显示，属性show控制显示与否
+                                lineStyle: {       // 属性lineStyle控制线条样式
+                                    color: [[0.14, '#C9F9AE'],[0.4, '#6FE855'],[0.52, '#F3D649'],[0.68, '#FF746C'],[1,'red']], 
+                                    width: 15
+                                }
+                            },
+                            axisTick: {            // 坐标轴小标记
+                                show: true,        // 属性show控制显示与否，默认不显示
+                                splitNumber: 5,    // 每份split细分多少段
+                                length :8,         // 属性length控制线长
+                                lineStyle: {       // 属性lineStyle控制线条样式
+                                    color: '#eee',
+                                    width: 1,
+                                    type: 'solid'
+                                }
+                            },
+                            axisLabel: {           // 坐标轴文本标签，详见axis.axisLabel
+                                show: true,
+                                formatter: function(v){return ""},
+                                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                                    color: '#333'
+                                }
+                            },
+                            splitLine: {           // 分隔线
+                                show: true,        // 默认显示，属性show控制显示与否
+                                length :10,         // 属性length控制线长
+                                lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                                    color: '#eee',
+                                    width: 2,
+                                    type: 'solid'
+                                }
+                            },
+                            pointer : {
+                                length : '80%',
+                                width : 8,
+                                color : 'auto'
+                            },
+                            title : {
+                                show : true,
+                                offsetCenter: ['-65%', -10],       // x, y，单位px
+                                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                                    color: '#333',
+                                    fontSize : 15
+                                }
+                            },
+                            detail : {
+                                show : true,
+                                backgroundColor: 'rgba(0,0,0,0)',
+                                borderWidth: 0,
+                                borderColor: '#ccc',
+                                width: 100,
+                                height: 40,
+                                offsetCenter: ['-65%', -5],       // x, y，单位px
+                                formatter:'{value}',
+                                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                                    color: 'auto',
+                                    fontSize : 25
+                                }
+                            },
+                            data:[{value: data, name: 'BMI指数'}]
+                        }    
+                    ]
+                };
+                myChart.setOption(option); 
+            }
+            
+            function setSlpPie(num){
+                var myChart = echarts.init(document.getElementById('slppie'));
+                var labelTop = {
+                normal : {
+                    color: '#1C7099',
+                    label : {   
+                        show : true,
+                        position : 'center',
+                        formatter : '{b}',
+                        textStyle: {baseline : 'bottom', color:'#1C7099',fontSize:14,fontWeight:400}
+                    },
+                    labelLine : {
+                        show : false
+                    }
+                }};
+                var labelFromatter = {
+                    normal : {
+                        label : {
+                            formatter : function (params){
+                                return 100 - params.value + '%'},
+                            textStyle: {color:'#1C7099',baseline : 'top',fontSize:18, fontWeight:600}
+                        }
+                    }
+                };
+                var labelBottom = {
+                    normal : {
+                        color: '#ccc',
+                        label : {
+                            show : true,
+                            position : 'center'},
+                            labelLine : {show : false}
+                    },
+                    emphasis: {color: 'rgba(0,0,0,0)'}
+                };
+                var radius = [80, 55];
+                var option = {
+                    series : [
+                        {
+                            type : 'pie',
+                            radius : radius,
+                            x: '0%', // for funnel
+                            itemStyle : labelFromatter,
+                            data : [
+                                {name:'other', value:100-num, itemStyle : labelBottom},
+                                {name:'深度睡眠', value:num,itemStyle : labelTop}
+                            ]
+                        }
+                    ]
+                };
+                myChart.setOption(option);
+            }
+            
+            function setSlpLine(fullslparray,slparray,datearray){
+                var myChart = echarts.init(document.getElementById('slpline'));
+                option = {
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data:[
+                            '睡眠时间',
+                            '深度睡眠时间'
+                        ]
+                    },
+                    calculable : true,
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : datearray
+                        },
+                        {
+                            type : 'category',
+                            axisLine: {show:false},
+                            axisTick: {show:false},
+                            axisLabel: {show:false},
+                            splitArea: {show:false},
+                            splitLine: {show:false},
+                            data : datearray
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            axisLabel:{formatter:'{value} min'}
+                        }
+                    ],
+                    series : [
+
+                        {
+                            name:'深度睡眠时间',
+                            type:'bar',
+                            itemStyle: {normal: {color:'rgba(28,112,153,1)', label:{show:true,textStyle:{color:'#1C7099'}}}},
+                            data:fullslparray
+                        },
+
+                        {
+                            name:'睡眠时间',
+                            type:'bar',
+                            xAxisIndex:1,
+                            itemStyle: {normal: {color:'rgba(28,112,153,0.5)', label:{show:true}}},
+                            data:slparray
+                        }
+                    ]
+                };
+                myChart.setOption(option); 
+            }
+        </script>
+    </head>
+
+	<body style="">
+        <div class="menu" id="">
+            <a href="index.html"><div id="logo">
+                </div></a>
+            <a href="friends.html"><div class="menukey" style="right:5%; top:25px;">
+                <p class="menuFont" style="color:#C4C4C4">FRIENDS</p>
+                </div></a>
+            <a href="activity.html"><div class="menukey" style="right:5%; top:25px; ">
+                <p class="menuFont" style="color:#c4c4c4">ACTIVITY</p>
+            </div></a>
+            <a href="healthPage.html"><div class="menukey" style="right:5%; top:25px;">
+                <p class="menuFont" style="color:#C4C4C4">BLOG</p>
+                </div></a>
+            <a href="forum.html"><div class="menukey" style="right:5%; top:25px;">
+                <p class="menuFont" style="color:#c4c4c4">FORUM</p>
+                </div></a>
+            <div class="menukey" style="right:5%; top:25px; background-color:#FED136">
+                <p class="menuFont" style="color:white">HOME</p>
+            </div>
+        </div>
+        
+        <div class="cardBox" style="top:25px; height:auto;">
+            <div id="leftCard">
+                <ul class="button-group">
+                        <li><a href="javascript:void(0);" onclick="showExe()"><div id="exeBtn" class="menuBtn" style="background-color: #ffcc33; color:white;">我的运动</div></a></li>
+                        <li><a href="javascript:void(0);" onclick="showHealth()"><div id="healthBtn" class="menuBtn">健康管理</div></a></li>
+                        <li><a href="javascript:void(0);" onclick="showSleep()"><div id="sleepBtn" class="menuBtn">睡眠分析</div></a></li>
+                        <li><a href="javascript:void(0);" onclick="showSetting()"><div id="settingBtn" class="menuBtn">个人设置</div></a></li>
+                </ul>
+            </div>
+            
+            <div class="anlCard" id="exercise" style="visibility:">
+                <div class="choosepart">
+                    <ul id="nav" style="letter-spacing: 8px;"> 
+                        <li><a id="exeChoose">今天</a> 
+                    <ul> 
+                        <li><a href="javascript:void(0);" onclick="setExe('today')" >今天</a> </li>
+                        <li><a href="javascript:void(0);" onclick="setExe('week')" >本周</a></li> 
+                        <li><a href="javascript:void(0);" onclick="setExe('month')" >本月</a></li> 
+                        <li><a href="javascript:void(0);" onclick="setExe('year')" >年度</a></li> 
+                    </ul> 
+                        </li> 
+                    </ul>
+                    <span class="sysTitleBold_c" style="position:relative; left:50px; top:35px;">锻炼情况</span>
+                </div>
+                
+                <div class="piepart">
+                    <div class="pie" id="exepie"></div>
+                
+                    <div id="" class="datacard">
+                        <p class="sysText_c" style="padding-bottom:5px;">运动时长</p>
+                        <span class="data" id="exetime">0</span>
+                    </div>
+                    
+                    <div id="" class="datacard">
+                        <p class="sysText_c" style="padding-bottom:5px;">燃烧热量</p>
+                        <span class="data" id="execalorie" style="color:#F47A4D">0</span>
+                        <span class="text">大卡</span>
+                    </div>
+                </div>
+                
+                <div class="linepart">
+                    <p class="sysTitleBold_c" >运动曲线图</p>
+                    <div id="exeline" class="line" ></div>
+                </div>
+                
+                <div class="detailepart">
+                   <div style="width:100%;height:30px;">
+                        <span class="sysTitleBold_c" >详细数据</span>
+                        
+                   </div>
+                    <ul id="exedetail">
+                       
+                        
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="anlCard" id="sleep" style="visibility:hidden">
+                <div class="choosepart">
+                    <ul id="nav" style="letter-spacing: 8px;"> 
+                        <li><a id="slpChoose">今天</a> 
+                    <ul> 
+                        <li><a href="javascript:void(0);" onclick="setSlp('today')" >今天</a></li>
+                        <li><a href="javascript:void(0);" onclick="setSlp('week')" >本周</a></li> 
+                        <li><a href="javascript:void(0);" onclick="setSlp('month')" >本月</a></li> 
+                        <li><a href="javascript:void(0);" onclick="setSlp('year')" >年度</a></li> 
+                    </ul> 
+                        </li> 
+                    
+                    </ul>
+                    <span class="sysTitleBold_c" style="position:relative; left:50px; top:35px;">睡眠情况</span>
+                </div>
+                
+                <div class="piepart">
+                    <div class="pie" id="slppie"></div>
+                    
+                    <div class="datacard">
+                        <p class="sysText_c" style="padding-bottom:5px;">睡眠总时长</p>
+                        <span id="slptime" class="data">0</span>
+                    </div>
+                    <div class="datacard">
+                        <p class="sysText_c" style="padding-bottom:5px;color:#1BB2D8">有效睡眠</p>
+                        <span id="fullslp" class="data" style="color:#1BB2D8">0</span>
+                    </div>
+                </div>
+                
+                <div class="linepart">
+                    <p class="sysTitleBold_c" >睡眠曲线图</p>
+                    <div class="line" id="slpline"></div>
+                </div>
+                
+                <div class="detailepart">
+                   <div style="width:100%;height:30px;">
+                        <span class="sysTitleBold_c" >详细数据</span>
+                        
+                   </div>
+                    <ul id="slpdetail">
+                        
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="anlCard" id="health" style="height:700px;visibility:hidden">
+                <div class="choosepart">
+                    <span class="sysTitleBold_c" style="position:relative; left:50px; top:35px;">个人健康</span>
+                </div>
+                
+                <div class="piepart">
+                    <div id="bmiround" class="pie"></div>
+                        <ul>
+                            <li style="padding-bottom:20px;">
+                                <span class="sysText_c">体重：</span>
+                                <input id="weightInput" style="width:80px;height:30px;margin-right:10px;"/>
+                                <span class="sysText_c">kg</span>
+                           </li>
+                           <li style="padding-bottom:20px;">
+                                <span class="sysText_c">身高：</span>
+                                <input id="heightInput" style="width:80px;height:30px;margin-right:10px;"/>
+                                <span class="sysText_c">cm</span>
+                           </li>
+                           
+                        </ul>
+                        <a class="getMore" href="javascript:void(0);" onclick="setHealth()" style="float:right;top:0px;width:150px;">+&nbsp;&nbsp;&nbsp;添加记录</a>
+                       
+                </div>
+                
+                <div class="linepart">
+                    <p class="sysTitleBold_c" >BMI曲线图</p>
+                    <div class="line" id="bmiline" style="height:300px;"></div>
+                </div>
+            </div>
+        
+            <div class="anlCard" id="setting" style="height:500px;visibility:hidden">
+                <div style="margin-top:20px;margin-bottom:10px;position:relative;left:40px;width:720px;height:20px;">
+                    <p class="sysTitleBold_c" style="width:400px;position:relative;float:left">个人信息</p>
+                    <a id="basicE" class="sysLink" style="width:30px;position:relative;float:right;" href="#" onclick="basicEdit()">修改</a>
+                    <a id="basicF" class="sysLink" style="visibility:hidden;width:30px;position:relative;float:right;" href="#" onclick="modifyPersonalData()">完成</a>
+                </div>
+                <div id="basic" class="sets" style="height:160px;">
+                    <ul class="sysText_c" style="position:absolute">
+                        <li class="list" style="padding-top:20px;">
+                            <span>用户名：</span>
+                            <span id="userid"></span>
+                        </li>
+                        <li class="list">
+                            <span>昵称：</span>
+                            <span id="username"></span>
+                            <input id="namebox" style="visibility:hidden;position:absolute; left:50px;width:200px; height:25px;" class="sysText_c"/>
+                        </li>
+                        <li class="list">
+                            <span>账户类型：</span>
+                            <span id="usertype">个人用户</span>
+                            <select id="typebox" style="visibility:hidden;position:relative;left:-70px;" class="sysText_c">
+                                <option selected="selected" value="00">个人用户</option>
+                                <option value="01">职业医生</option>
+                                <option value="02">健身教练</option>
+                </select>
+                        </li>
+                    </ul>
+                </div>
+                <div style="margin-top:20px;margin-bottom:10px;position:relative;left:40px;width:720px;height:20px;">
+                    <p class="sysTitleBold_c" style="width:400px;position:relative;float:left">个性化</p>
+                    <a id="targetE" class="sysLink" style="width:30px;position:relative;float:right;" href="#" onclick="targetEdit()">修改</a>
+                    <a id="targetF" class="sysLink" style="visibility:hidden;width:30px;position:relative;float:right;" href="#" onclick="modifyTargetData()">完成</a>
+                </div>
+                <div id="targets" class="sets" style="height:130px;">
+                    <ul class="sysText_c" style="position:absolute">
+                        <li class="list" style="padding-top:20px;">
+                            <span>每周运动目标：</span>
+                            <span id="exetar"> Caroline</span>
+                            <input id="exetarbox" style="visibility:hidden;position:absolute; left:110px;width:200px; height:25px;" class="sysText_c"/>
+                            <select id="exetypebox" style="visibility:hidden; position:relative;left:120px;" class="sysText_c">
+                                <option selected="selected" value="00">Caroline</option>
+                </select>
+                        </li>
+                        <li class="list">
+                            <span>目标BMI：</span>
+                            <span id="bmitar"></span>
+                            <input id="bmitarbox" style="visibility:hidden;position:absolute; left:75px;width:200px; height:25px;" class="sysText_c"/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </body>
+</html>

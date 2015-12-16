@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title id="AddActivityTitle"></title>
+    <meta content="off" http-equiv="x-dns-prefetch-control" charset="utf-8" ></meta>
+    <meta content="target-densitydpi=320,width=640,user-scalable=no" name="viewport"></meta>
+    <script language="javascript" type="text/javascript" src="../Public/My97DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" href="../Public/css/area.css">
+    <link rel="stylesheet" href="../Public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../Public/css/buttons.css" />
+    <script type="text/javascript" src="../Public/js/jquery-1.8.2.min.js"></script>
+    
+    <style type="text/css">
+            .inputBox{
+                position: relative;
+                left: 150px;
+                padding-top: 20px;
+                width: 1000px;
+                height: 30px;
+            }
+            
+            .inputArea{
+                
+                padding: 5px;
+                height: 20px;
+                line-height: 25px;
+                font-size: 14px;
+                -moz-border-radius: 3px;
+                -webkit-border-radius: 3px;
+                border-radius: 3px;
+                border: 1px solid #c9c9c9;
+            }
+            
+            .state{
+                width: 20px;
+                height: 20px;
+                float: right;
+                background-size: 20px 20px;
+            }
+        </style>
+
+    <script type="text/javascript">
+        function checkInfo(){
+            if(document.getElementById("activityTitle").value=="")
+                alert("活动标题不能为空");
+            else if(document.getElementById("activityDate").value=="")
+                alert("活动日期不能为空");
+            else
+                add();
+        }
+        
+        function add(){
+            var activityTitle = document.getElementById("activityTitle").value;
+            var acPosition = document.getElementById("position").value;
+            var acDescription = document.getElementById("description").value;
+            var date = document.getElementById("activityDate").value;
+            var hourIndex = document.getElementById("hour").selectedIndex;
+            var hour = document.getElementById("hour").options[hourIndex].value;
+            var minIndex = document.getElementById("min").selectedIndex;
+            var min = document.getElementById("min").options[minIndex].value;
+            var acTime = date+" "+hour+":"+min+":00";
+
+            $.ajax({
+                    //提交数据的类型 POST GET
+                    type:"POST",
+                    //提交的网址
+                    url:"../admin/AddActivity.php",
+                    //提交的数据
+                    data:{title:activityTitle,time:acTime,position:acPosition,description:acDescription},
+                    //返回数据的格式
+                    datatype: "text",//"xml", "html", "script", "json", "jsonp", "text".
+                    success:function(data){
+                        if(data!=true)
+                            alert(data);
+                        else{
+                            location.href="activity.html";
+                        }
+                    }
+                });
+        }
+    </script>
+</head>
+
+<body  style="margin:50px;">
+    <div class="menu">
+        <a href="index.html"><div id="logo">
+        </div></a>
+    </div>
+        
+    <span class="titleBold" style="position:relative;left:70px;font-size:25px;">发布一个新活动吧</span>
+    
+        <div class="inputBox">
+            <span class="text" style="font-size:17px;">活动标题</span>
+            <input class="inputArea" id="activityTitle" style="width:300px;">
+            <span class="text" style="font-size:17px;color:red">*</span>
+        </div>
+        
+        <div class="inputBox" >
+            <span class="text" style="font-size:17px;">活动时间</span>
+            <input id= "activityDate" class="inputArea" style="width:163px;" type="text" name="date" onClick="WdatePicker()" onChange="setTaskTime()" placeholder="点击选择任务日期"/>
+            <select id="hour" class="inputArea" style="width:55px;height:30px;" name="hour" onChange="setTaskTime()">
+                <option selected="selected" value="00">00</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+            </select>
+            <span id="wtf" class="text">:</span>
+            <select id="min" name="minute" class="inputArea" style="width:55px;height:30px;" onChange="setTaskTime()">
+                <option selected="selected" value="00">00</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+                <option value="32">32</option>
+                <option value="33">33</option>
+                <option value="34">34</option>
+                <option value="35">35</option>
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+                <option value="43">43</option>    
+                <option value="44">44</option>
+                <option value="45">45</option>
+                <option value="46">46</option>
+                <option value="47">47</option>
+                <option value="48">48</option>    
+                <option value="49">49</option>
+                <option value="50">50</option>
+                <option value="51">51</option>
+                <option value="52">52</option>
+                <option value="53">53</option>
+                <option value="54">54</option>
+                <option value="55">55</option>
+                <option value="56">56</option>
+                <option value="57">57</option>
+                <option value="58">58</option>
+                <option value="59">59</option>
+            </select>
+            <span class="text" style="font-size:17px;color:red">*</span>
+        </div>
+        
+        <div class="inputBox">
+            <span class="text" style="font-size:17px;">活动地点</span>
+            <input class="inputArea" id="position" style="width:300px;">
+        </div>
+        
+        <div class="inputBox">
+            <span class="text" style="font-size:17px;vertical-align:top;">活动描述</span>
+            <textarea class="inputArea" id="description" style="width:500px;height:200px;" placeholder="请在此输入活动详细信息（100字以内）"></textarea>
+        </div>
+        <input class="ghbutton" type="submit" value="发 布" id="submitBtn" style="float:left;left:617px;top:190px;" onclick="checkInfo()"></input>
+        
+    
+</body>
+
+</html>
